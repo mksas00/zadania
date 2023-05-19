@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa FIFOPriority jest implementacją kolejki FIFO która przechowuje elementy typu FIFOElement które przechowują
+ * wartości typu String oraz priorytet tych wartości w kolejce
+ */
 public class FIFOPriority {
 
     public List<FIFOElement> fifoPriorityList;
@@ -15,6 +19,10 @@ public class FIFOPriority {
         fifoPriorityList.add(new FIFOElement(element, priority));
     }
 
+    /**
+     * Funkcja zwraca wartość pierwszego elementu z kolejki.
+     * @return
+     */
     public String popFirst(){
         if(fifoPriorityList.isEmpty()) return null;
         String valueToReturn = fifoPriorityList.get(0).getValue();
@@ -22,6 +30,12 @@ public class FIFOPriority {
         return valueToReturn;
     }
 
+    /**
+     * Funkcja zwraca element o najwyższym priorytecie spośród trzech pierwszych elementów stojących przy "wyjściu" z
+     * kolejki. Jeśli dwa lub więcej elementów posiada ten sam priorytet zwracana jest wartość elemtnu stojącego
+     * najbliżej "wyjścia".
+     * @return
+     */
     public String popHighThree(){
 
         if(fifoPriorityList.isEmpty()) return null;
@@ -40,6 +54,12 @@ public class FIFOPriority {
 
     }
 
+    /**
+     * Funkcja zwraca element o najwyższym priorytetcie spośród wszystkich elemtnów znajdujących się w kolejce, jeśli
+     * dwa lub więcej elementów posiada ten sam priorytet zwracana jest wartość elementy stojącego najbliżej wyjścia z
+     * kolejki.
+     * @return
+     */
     public String popHighest(){
 
         if(fifoPriorityList.isEmpty()) return null;
@@ -58,7 +78,9 @@ public class FIFOPriority {
 
     }
 
-
+    /**
+     * Klasa ma zadanie przechowywanie wartości danych zapisywanych w kolejce wraz z ich priorytetami.
+     */
     class FIFOElement{
 
         private int priority;
@@ -87,8 +109,6 @@ public class FIFOPriority {
     }
 
     public static void main(String[] args) {
-
-
 
         FIFOPriority fifoPriority = new FIFOPriority();
         fifoPriority.push("Sebastian", 2);
